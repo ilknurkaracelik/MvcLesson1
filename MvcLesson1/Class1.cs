@@ -7,5 +7,9 @@ namespace MvcLesson1
 {
     public class Class1
     {
+        ///
+        ///
+        ///
+
     }
 }
