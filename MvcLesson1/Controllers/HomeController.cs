@@ -21,5 +21,9 @@ namespace MvcLesson1.Controllers
         {
             return View();
         }
+        public ActionResult Faq()
+        {
+            return View();
+        }
     }
 }
