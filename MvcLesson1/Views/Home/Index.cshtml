@@ -1,4 +1,7 @@
-﻿
+﻿@using MvcLesson1.Models;
+@model List<MvcLesson1.Models.Urun>
+
+
 @Html.Partial("_Carousel")
 
 <div class="section">
@@ -102,3 +105,22 @@
     </div><!-- /.container -->
 
 </div><!-- /.section-colored -->
+
+<h2>Kurslar</h2>
+
+<h2> Urun Sayısı = @ViewBag.UrunSayisi</h2>
+
+@foreach (var urun in Model)
+{
+    <li>
+        @urun.UrunAdi
+        <p>@urun.Fiyat</p>
+    </li>
+}
+
+@foreach (var kategori in (List<Kategori>)ViewBag.Kategoriler)
+{
+    <li>
+        @kategori.Ad
+    </li>
+}
