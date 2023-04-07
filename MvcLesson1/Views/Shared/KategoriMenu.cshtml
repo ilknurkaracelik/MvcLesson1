@@ -1,0 +1,10 @@
+﻿@using MvcLesson1.Models;
+@model List<Kategori>
+
+
+@foreach (var kategori in Model)
+{
+    <li>
+        @kategori.Ad
+    </li>
+}

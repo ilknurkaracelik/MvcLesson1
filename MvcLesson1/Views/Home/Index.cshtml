@@ -1,5 +1,6 @@
 ﻿@using MvcLesson1.Models;
-@model List<MvcLesson1.Models.Urun>
+@*@model List<MvcLesson1.Models.Urun>*@
+@model UrunKategoriModel
 
 
 @Html.Partial("_Carousel")
@@ -108,9 +109,9 @@
 
 <h2>Kurslar</h2>
 
-<h2> Urun Sayısı = @ViewBag.UrunSayisi</h2>
+<h2> Urun Sayısı = @Model.UrunSayisi</h2>
 
-@foreach (var urun in Model)
+@foreach (var urun in Model.Urunler)
 {
     <li>
         @urun.UrunAdi
@@ -118,9 +119,4 @@
     </li>
 }
 
-@foreach (var kategori in (List<Kategori>)ViewBag.Kategoriler)
-{
-    <li>
-        @kategori.Ad
-    </li>
-}
+@Html.Action("KategoriMenu", "Kategori")

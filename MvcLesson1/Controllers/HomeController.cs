@@ -23,15 +23,17 @@ namespace MvcLesson1.Controllers
 
 
 
-            List<Kategori> Kategoriler = new List<Kategori>()
-            {
-                new Kategori() { Id = 1, Ad = "Telefon" },
-                new Kategori() { Id = 2, Ad = "TV" },
-            };
-            ViewBag.UrunSayisi = urunler.Count;
-            ViewBag.Kategoriler = Kategoriler;
 
-            return View(urunler);
+
+
+            UrunKategoriModel model = new UrunKategoriModel();
+
+            model.UrunSayisi = urunler.Count();
+            model.Urunler = urunler;
+
+            ViewBag.UrunSayisi = urunler.Count;
+
+            return View(model);
         }
 
 
