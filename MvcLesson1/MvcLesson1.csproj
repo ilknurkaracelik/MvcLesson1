@@ -158,6 +158,7 @@
     <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\UrunKategoriModel.cs" />
+    <Compile Include="Models\Veritabani.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +206,8 @@
     <Content Include="Views\Shared\_Carousel.cshtml" />
     <Content Include="Views\Shared\_RecentProjects.cshtml" />
     <Content Include="Views\Shared\KategoriMenu.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

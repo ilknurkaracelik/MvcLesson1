@@ -113,10 +113,12 @@
 
 @foreach (var urun in Model.Urunler)
 {
-    <li>
-        @urun.UrunAdi
-        <p>@urun.Fiyat</p>
-    </li>
+<li>
+    @urun.UrunAdi
+    <p>@urun.Fiyat</p>
+    <p>
+        <a href="/Home/Details/@urun.UrunId" class="btn btn-primary" role="button">Button</a>
+    </p>
+</li>
 }
 
-@Html.Action("KategoriMenu", "Kategori")

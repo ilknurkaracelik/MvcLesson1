@@ -36,6 +36,11 @@
     <script type="text/javascript" src="js/boxsizing/jquery.boxsizing.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/banzhow/js/banzhow.js"></script>
+    <style>
+        body{
+            margin-top:15px;
+        }
+    </style>
 </head>
 
 
@@ -59,7 +64,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        @Html.ActionLink("Anasayfa","Index","Home")
+                        @Html.ActionLink("Anasayfa", "Index", "Home")
                     </li>
                     <li><a href="/Home/Services">Services</a></li>
                     <li class="dropdown">
@@ -92,9 +97,33 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav>
+    @if (IsSectionDefined("Kategori"))
+    {
+        <div class="row">
+            <div class="col-md-3">
+                @RenderSection("Kategori", false)
+                @*@Html.Action("KategoriMenu", "Kategori")*@
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+    }
 
 
-    @RenderBody()
+
+
+
+
+
 
 
     <footer>

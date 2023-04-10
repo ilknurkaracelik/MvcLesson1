@@ -12,34 +12,27 @@ namespace MvcLesson1.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //string[] kurslar = { "Mvc", "c#", "asp.net" };
-            List<Urun> urunler = new List<Urun>()
-            {
-                new Urun(){ UrunId=1,UrunAdi="Iphone",Aciklama="İyi",Fiyat=3000,Satistami=true},
-                new Urun(){ UrunId=2,UrunAdi="Iphone7",Aciklama="İyi",Fiyat=5000,Satistami=true},
-                new Urun(){ UrunId=3,UrunAdi="Iphone8",Aciklama="ehh",Fiyat=2000,Satistami=false},
-                new Urun(){ UrunId=4,UrunAdi="Iphone9",Aciklama="kötü",Fiyat=9000,Satistami=true}
-            };
-
-
-
-
 
 
             UrunKategoriModel model = new UrunKategoriModel();
 
-            model.UrunSayisi = urunler.Count();
-            model.Urunler = urunler;
-
-            ViewBag.UrunSayisi = urunler.Count;
+            model.UrunSayisi = Veritabani.Liste.Where(i=>i.Satistami==true).Count();
+            model.Urunler = Veritabani.Liste.Where(i => i.Satistami == true).ToList();
 
             return View(model);
         }
 
-
-
+        public ActionResult Details(int id)
+        {
+            var urun= Veritabani.Liste.Where(i => i.UrunId == id).FirstOrDefault();
+            return View(urun);
+        }
 
         public ActionResult Services()
+        {
+            return View();
+        }
+        public ActionResult About()
         {
             return View();
         }

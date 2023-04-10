@@ -15,6 +15,7 @@ namespace MvcLesson1.Controllers
             return View();
         }
 
+        [ChildActionOnly]
         public  PartialViewResult KategoriMenu()
         {
 
