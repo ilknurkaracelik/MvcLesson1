@@ -27,6 +27,26 @@ namespace MvcLesson1.Controllers
             var urun= Veritabani.Liste.Where(i => i.UrunId == id).FirstOrDefault();
             return View(urun);
         }
+        [HttpGet] // Formu getirir
+        public ActionResult UrunEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public  ActionResult UrunEkle (string UrunAdi,string UrunAciklama,double Fiyat,string Resim,bool Satistami)
+        {
+            Urun entity = new Urun();
+            entity.UrunAdi = UrunAdi;
+            entity.Aciklama = UrunAciklama;
+            entity.Fiyat = Fiyat;
+            entity.Resim = Resim;
+            entity.Satistami = Satistami;
+
+            Veritabani.ElemanEkle(entity);
+
+            return View("UrunListe", Veritabani.Liste);
+        }
 
         public ActionResult Services()
         {
